@@ -26,3 +26,12 @@ def decrypt(text, key):
         numbered_text[i] = chr(((numbered_text[i] - numbered_key[i % len(numbered_key)]) % 26) + ord('A'))
         decrypted_text.append(numbered_text[i])
     return ''. join(decrypted_text)
+
+###main
+def main():
+    text = input("Enter the text: ")
+    key = input("Enter the key: ")
+    encrypted_text = encrypt(text, key)
+    print(f"Encrypted text: {encrypted_text}")
+    decrypted_text = decrypt(encrypted_text, key)
+    print(f"Decrypted text: {decrypted_text}")
