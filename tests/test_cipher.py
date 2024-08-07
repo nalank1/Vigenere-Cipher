@@ -1,5 +1,8 @@
+import pytest
+from ..app import encrypt
+
 def test_encryption():
-    from app import encrypt
+    
     assert encrypt("HELLO", "KEY") == "RIJVS"
     assert encrypt("WORLD", "KEY") == "JVSZL"
 
@@ -14,7 +17,6 @@ def test_encryption():
     assert encrypt("SHORT", "THISISALONGKEY") == "DLOQH"
 
 def test_decryption():
-    from app import decrypt
     assert decrypt("RIJVS", "KEY") == "HELLO"
     assert decrypt("JVSZL", "KEY") == "WORLD"
 
