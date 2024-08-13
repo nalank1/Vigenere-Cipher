@@ -1,5 +1,5 @@
 import pytest
-from ..app import encrypt, decrypt
+from app import encrypt, decrypt
 
 def test_encryption():
     
