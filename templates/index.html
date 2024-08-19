@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <styles src1="static\styles.css"></styles>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static\styles.css" />
     <title>Vigenere Cipher Checker</title>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <h1>Vigenere Cipher Translator</h1>
-
+      <h1>Vigenere Cipher Translator</h1>
     </div>
     <div>
-        <label for="input">Input:</label>
-        <input type=""
+      <form method="/encrypt">
+        <label for="text">Input:</label>
+        <input type="text" name="text" id="text" required />
+        <label for="key">Key:</label>
+        <input type="text" name="key" id="key" required />
+        <button type="submit">Submit</button>
+      </form>
     </div>
-</body>
+{% if encrypted_text %}
+  <h2>Encrypted: {{ encrypted_text }} </h2>
+  {% endif %} 
+    <div>
+        <form method="/decrypt">
+          <label for="text">Input:</label>
+          <input type="text1" name="text1" id="text1" required />
+          <label for="key1">Key:</label>
+          <input type="text1" name="key1" id="key1" required />
+          <button type="submit">Submit</button>
+    </div>
+  </body>
 
-<script src="static\script.js"></script>
+  
+  
+  {% if decrypted_text %}
+  <h2>Decrypted: {{ decrypted_text }}</h2>
+  {% endif %} 
+  
+  {% if error %}
+  <h2>Error: {{ error }}</h2>
+  {% endif %}
+
 </html>
