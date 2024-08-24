@@ -19,12 +19,12 @@ def encrypt(text, key):
         
 
 ###decryption
-def decrypt(text1, key1):
-    text1 = text1.upper()
-    key1 = key1.upper()
+def decrypt(text, key):
+    text = text.upper()
+    key = key.upper()
     decrypted_text = ''
 
-    numbered_key = [ord(i) - ord('A') for i in key1]
+    numbered_key = [ord(i) - ord('A') for i in key]
     numbered_text = [ord(i) - ord('A') for i in text]
 
     for i in range(len(numbered_text)):
@@ -43,22 +43,15 @@ def main():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
-
-
-@app.route('/encrypt', methods=['POST'])
-def encrypt_route():
+    if request.method == 'GET':
+        return render_template('index.html')
     text = request.form['text']
     key = request.form['key']
     encrypted_text = encrypt(text, key)
-    return render_template('index.html', encrypted_text=encrypted_text)
+    decrypted_text = decrypt(encrypted_text, key)
+    return render_template('index.html', encrypted_text=encrypted_text, decrypted_text=decrypted_text)
+    
 
-@app.route('/decrypt', methods=['POST'])
-def decrypt_route():
-    text1 = request.form['text1']
-    key1 = request.form['key1']
-    decrypted_text = decrypt(text1, key1)
-    return render_template('index.html', decrypted_text=decrypted_text)
 
 
 if __name__ == '__main__':

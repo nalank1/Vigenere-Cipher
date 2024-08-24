@@ -11,28 +11,21 @@
       <h1>Vigenere Cipher Translator</h1>
     </div>
     <div>
-      <form method="/encrypt">
+      <form method="POST">
         <label for="text">Input:</label>
         <input type="text" name="text" id="text" required />
         <label for="key">Key:</label>
         <input type="text" name="key" id="key" required />
-        <button type="submit">Submit</button>
+        <button type="submit">Encrypt/Decrypt</button>
       </form>
     </div>
-{% if encrypted_text %}
-  <h2>Encrypted: {{ encrypted_text }} </h2>
-  {% endif %} 
-    <div>
-        <form method="/decrypt">
-          <label for="text">Input:</label>
-          <input type="text1" name="text1" id="text1" required />
-          <label for="key1">Key:</label>
-          <input type="text1" name="key1" id="key1" required />
-          <button type="submit">Submit</button>
-    </div>
+
+    
   </body>
 
-  
+  {% if encrypted_text %}
+  <h2>Encrypted: {{ encrypted_text }} </h2>
+  {% endif %} 
   
   {% if decrypted_text %}
   <h2>Decrypted: {{ decrypted_text }}</h2>
